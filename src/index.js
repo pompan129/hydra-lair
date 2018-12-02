@@ -15,5 +15,5 @@ const store=createStoreWithMiddleware(enableBatching(reducer));
     <Provider	store ={store}>
        <App />
     </Provider	>,
-    document.getElementById('container')
+    document.getElementById('root')
   )
