@@ -1,3 +1,5 @@
+import  _ from 'lodash';
+
 
 const GRID_WIDTH = 60;
 const GRID_HEIGHT = 60;

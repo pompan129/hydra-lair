@@ -1,10 +1,10 @@
 import { 
     createGameMap,
     createEntities
- } from "./utility";
+ } from "../utility";
  import {Howl, Howler} from 'howler';
 
- var _ = require('lodash/core');
+ import  _ from 'lodash';
  
  export const actionTypes = {
     BATCH_ACTIONS: "BATCH_ACTIONS",
@@ -339,7 +339,7 @@ import {
              //if potion on new target heal the player
              if (target.type === "potion") {
                 playerActionSound("potion");
-                const hp = playerStats.hp + _.random(10, 30);
+                let hp = playerStats.hp + _.random(10, 30);
                 if (hp > playerStats.maxHp) {
                    hp = playerStats.maxHp;
                 }
@@ -354,7 +354,7 @@ import {
              }
              
              if (target.type === "exit") {
-                createLevel
+                //createLevel
                      batch.push(sendMsg("EXIT"));
                 batch.push(createLevel(state.game.dungeonLevel + 1));
                 batch.push(setDungeonLevel(state.game.dungeonLevel + 1));

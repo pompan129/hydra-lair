@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import GameBoard from "./game-board";
-import MessageBoard, { Modal } from "./message-board";
+import GameBoard from "./components/game-board";
+import MessageBoard, { Modal } from "./components/message-board";
 import {
   createLevel,
   setDungeonLevel,
   resetPlayer,
   setModal
-} from "../actions";
+} from "./actions";
 
 //they only give me 10 files in codepen so I put component here
 const Header = props => {

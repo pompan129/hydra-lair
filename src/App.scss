@@ -1,0 +1,381 @@
+@import "./index.css";
+
+
+//colors
+$background-color: #00071a;//#2d2d2d;
+$game-color: #353839;//#C53151;
+$cell-color: #FF9933;//brown;//rgb(32, 191, 255);
+$floor:#828E84;
+$badguy: #299617;
+$weapon: #f3f70c;
+$potion: #EDCACC;
+$player: #F5F5FB;
+$exit: #00b9f1;
+$boss: #c447e0;
+$msg-board-shadow:#50BFE6;
+
+//sizes
+$cell-width: 1.5rem;
+
+html {
+  font-size: 100%;
+   background-color: $background-color;
+}
+
+ h1{
+    font-size: 3rem;
+    min-width:32rem;
+       
+}
+.header{
+   color: white;
+   margin: 1rem;  
+   h1{
+      text-align: center;
+      color: $background-color;
+      font-family: 'Fredoka One', cursive;
+      text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+
+   }
+}
+
+.console {
+  display: flex;
+  border-top: .5rem solid #666666;
+  border-bottom: .5rem solid #404040;
+  justify-content: space-around;
+  background: $background-color;
+  background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,w_200/v1491172379/cartoon-stone-texture_1110-576_wcotkv.png");//todo
+   
+  .game-board {//todo
+     margin-top: 1.5rem;
+     margin-bottom:1.5rem;
+     border: 1rem solid;
+     border-color: #494e50 #181a1b #181a1b #494e50;
+     background-color: $game-color;//
+     min-height:12rem;
+     min-width:20rem;
+     box-shadow: 1px 1px 24px 8px $cell-color;//#D92121;
+   
+     .row {
+        display: flex;
+        justify-content: center;
+        color: red;      
+      
+      .cell {
+        width: $cell-width;
+        min-width: $cell-width;
+        height: $cell-width;
+        border: 1px solid $cell-color;
+        background: $cell-color;
+        //box-shadow: 1px 1px 10px 0px black;
+        //z-index:-1;
+         
+      }
+      
+      .floor {
+          background: $floor;
+          z-index:0;
+          border: 1px solid $floor;//lighten($floor, 1%);
+          box-shadow: 1px 1px 10px 0px black;
+          
+      }
+
+      .exit {
+        background: $floor;
+        border: 1px solid lighten($floor, 25%);
+         background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1490682320/Spiral_Stairs_axhu6v.png");
+        background-size: cover;
+         z-index:0;
+      }
+
+      .potion {
+        background-color: $potion;
+        background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491111854/Health-potion2_ooicqh.png");//todo
+        background-size: cover;
+        border: 1px solid lighten($potion, 20%);
+        z-index:1;
+        box-shadow: 0px 0px 15px 2px #FF6EFF;
+      }
+
+      .boss {
+        background: $boss;
+        background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491106394/hydra_osrkir.png");
+        background-size: cover;
+        box-shadow: 0px 0px 35px 2px #614051;
+        border: 1px solid lighten($boss, 2%);
+         z-index:1;
+      }
+
+      .weapon {
+        background: #E6E7B6;
+        border: 1px solid $weapon;
+        box-shadow: 0px 0px 15px 2px #FFFF38;
+        z-index:1;
+         
+      }
+        
+        .Dagger{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,w_50/v1491182407/smDagger_ic3owh.png");
+        background-size: cover;
+          
+        }
+        .Short{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/a_0/v1491182773/ShortSword_tgvmdu.png");
+        background-size: cover; 
+        }
+        .Long{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491183304/Longsword_lr2qym.png");
+        background-size: cover; 
+        }
+        .Battle{
+           background-image: url("http://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1490683590/Axe_wtgcte.png");
+        background-size: cover; 
+        }
+      .Vorpal{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/a_180/v1491183611/vorpal_cgurfl.png");
+        background-size: cover; 
+        }
+        .Machine{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491183872/machineGun_ahbsb7.png");
+        background-size: cover; 
+        }
+        .Bazooka{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491187849/bazooka_d5njjz.png");
+        background-size: cover; 
+        }
+        .Excalibur{
+           background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491188143/excal_nzditv.png");
+        background-size: cover; 
+        }
+      .badguy {
+        background: lighten($badguy,10%);
+        border: 1px solid $badguy;
+        z-index:1;
+        box-shadow: 0px 0px 15px 2px #1A1110;
+        } 
+        
+      .Kobold{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491105312/Kobold_bqbusq.png");//todo
+            background-size: cover;
+         }
+         .Goblin{
+            background-image: url("http://res.cloudinary.com/kurt-johnson/image/upload/c_scale,w_45/v1490681438/Goblin_zuayl4.png");//todo
+            background-size: cover;
+         }
+         .Orc{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491105567/Orc_p39xpj.png");//todo
+            background-size: cover;
+         }
+         .Bugbear{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491105942/bugbear_gqctjh.png");//todo
+            background-size: cover;
+         }
+         .Ogre{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491106024/Ogre_ogxqit.png");//todo
+            background-size: cover;
+         }
+         .Troll{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491105180/troll_x7fbyn.png");//todo
+            background-size: cover;
+         }
+         .Vampire{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491106171/vampire_vwzwxm.png");//todo
+            background-size: cover;
+         }
+         .Balrog{
+            background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,h_50,w_50/v1491106273/balrog_k3j1po.png");//todo
+            background-size: cover;
+         }
+      
+      .player {
+        background-color: $player;
+        background-image: url("https://res.cloudinary.com/kurt-johnson/image/upload/c_scale,w_50/v1490681983/hero_w0jnkp.png");//todo
+        background-size: cover;
+        border: 1px solid #E0FFFF;
+        box-shadow: 0px 0px 35px 2px #ffffcc;
+        z-index:2;
+      }
+
+      .door {
+        background: red;
+      }
+      
+   }
+   
+
+
+
+}
+
+  .marquee{
+     width:15rem;
+     padding:.5rem;
+     margin: 1.5rem 1rem;
+     border: 1rem solid;
+     border-color: #494e50 #181a1b #181a1b #494e50;
+     background-color: $game-color;
+     box-shadow: 1px 1px 15px 0px $msg-board-shadow;
+     color:#CAC7C6;
+     font-family: Sans-Serif;
+     font-style:bold;
+
+     
+     ul{list-style-type: none;}
+     
+     .game-stats{
+        h3{
+           margin-top:1rem;
+           font-size:1.5rem;
+           text-align: center;
+           color: lighten($game-color,50%);
+           text-shadow: 1px 1px 1px #000;
+        }
+        
+     }
+     
+     .player-stats{
+        font-size: 1.25rem;
+        hr{
+           height: 10px;
+           border: 0;
+           box-shadow: 0 10px 10px -10px #50BFE6 inset;
+        }
+        
+        li{padding-top:.25rem}
+        
+        label{
+           color: $msg-board-shadow;
+           text-shadow:0 0 1 darken($msg-board-shadow, 25%);
+           font-style:bold;
+        }
+     }
+     
+     .msg-board{
+        height:7rem;
+        min-height:7rem;
+        font-size: 1rem;
+        overflow: hidden;
+        ul{
+           li{opacity: 0.6;}
+           li:nth-child(1) {
+              opacity: 1.0;
+              color:lighten(#FF9933,20%);
+           }
+           li:nth-child(2) {opacity: 1.0;}
+        }
+     }
+     
+     .game-controls{
+        padding-top: 1rem;
+        border-top:1px solid #50BFE6;
+        span{margin-right:.5rem;}
+        /* The switch - the box around the slider */
+         .switch {
+           position: relative;
+           display: inline-block;
+           width: 2rem;
+           height: .8rem;
+         }
+        
+         /* Hide default HTML checkbox */
+         .switch input {display:none;}
+        
+        /* The slider */
+         .slider {
+           position: absolute;
+           cursor: pointer;
+           top: 0;
+           left: 0;
+           right: 0;
+           bottom: 0;
+           background-color: #ccc;
+           //-webkit-transition: .4s;
+           transition: .4s;
+         }
+        
+        
+         .slider:before {
+           position: absolute;
+           content: "";
+           height: 1rem;
+           width: 1rem;
+           left: 0;
+           bottom: -.1rem;
+           background-color: white;
+           //-webkit-transition: .4s;
+           transition: .4s;
+         }
+
+         input:checked + .slider {
+           background-color: #2196F3;
+         }
+
+         input:focus + .slider {
+           box-shadow: 0 0 1px #2196F3;
+         }
+
+         input:checked + .slider:before {
+           transform: translateX(1.2rem);
+         }
+     }
+   }    
+}
+
+.modal-wrap{
+   width: 100%;
+   height: 100%;
+   min-height:100%;
+   position: fixed;
+   top:0;
+   left:0;
+   margin:0;
+   padding:0;
+   z-index: 98;
+}
+
+.msg-modal{
+   position: absolute;
+   padding:1rem;
+   color: lighten($cell-color,30% );
+   text-align:center;
+   font-size: 1.25rem;
+   border:1px solid black;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+  // z-index: 99;  todo
+   background: $game-color;
+   box-shadow: 1px 1px 24px 8px $cell-color;//#D92121;
+   h2{
+      border-bottom:1px solid $cell-color;
+      margin:1rem 0;
+      color:$cell-color;
+      font-size:2rem;        
+   }
+   img{padding:.5rem;}
+   button{
+      margin-top:1rem;
+      border:5px solid;
+      border-color: #494e50 #181a1b #181a1b #494e50;
+      //border-color:grey black black grey;
+      background: darken(grey,20%);
+      color: $msg-board-shadow;
+      font-style:bold;
+      font-size:1.5rem;
+   }
+   button:hover{
+      box-shadow: 1px 1px 5px 0px $msg-board-shadow;
+   }
+   
+}
+
+.msg-modal-backdrop{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   background: rgba(0, 0, 0, 0.7);
+}
+
